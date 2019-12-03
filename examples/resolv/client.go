@@ -3,21 +3,24 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"log"
 	"time"
 
-	"github.com/grandcat/zeroconf"
+	"github.com/iotdevice/zeroconf"
 )
 
 var (
-	service  = flag.String("service", "_workstation._tcp", "Set the service category to look for devices.")
+	service = flag.String("service", "_iotdevice._tcp", "Set the service category to look for devices.")
+	//service  = flag.String("service", "_home-assistant._tcp", "Set the service category to look for devices.")
+	//service  = flag.String("service", "home._home-assistant._tcp", "Set the service category to look for devices.")
 	domain   = flag.String("domain", "local", "Set the search domain. For local networks, default is fine.")
-	waitTime = flag.Int("wait", 10, "Duration in [s] to run discovery.")
+	waitTime = flag.Int("wait", 2, "Duration in [s] to run discovery.")
 )
 
 func main() {
 	flag.Parse()
-
+	log.Println("=====================start============")
 	// Discover all services on the network (e.g. _workstation._tcp)
 	resolver, err := zeroconf.NewResolver(nil)
 	if err != nil {
@@ -27,7 +30,7 @@ func main() {
 	entries := make(chan *zeroconf.ServiceEntry)
 	go func(results <-chan *zeroconf.ServiceEntry) {
 		for entry := range results {
-			log.Println(entry)
+			fmt.Println("===entry:", entry)
 		}
 		log.Println("No more entries.")
 	}(entries)
@@ -35,6 +38,7 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*time.Duration(*waitTime))
 	defer cancel()
 	err = resolver.Browse(ctx, *service, *domain, entries)
+	//err = resolver.Lookup(ctx, "home", "_home-assistant._tcp", "local", entries)
 	if err != nil {
 		log.Fatalln("Failed to browse:", err.Error())
 	}
