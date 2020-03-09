@@ -11,7 +11,8 @@ import (
 )
 
 var (
-	service = flag.String("service", "_iotdevice._tcp", "Set the service category to look for devices.")
+	service = flag.String("service", "_services._dns-sd._udp", "Set the service category to look for devices.")
+	//service = flag.String("service", "_iotdevice._tcp", "Set the service category to look for devices.")
 	//service  = flag.String("service", "_home-assistant._tcp", "Set the service category to look for devices.")
 	//service  = flag.String("service", "home._home-assistant._tcp", "Set the service category to look for devices.")
 	domain   = flag.String("domain", "local", "Set the search domain. For local networks, default is fine.")
