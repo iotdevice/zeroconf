@@ -12,7 +12,7 @@ import (
 
 	"time"
 
-	"github.com/cenkalti/backoff"
+	"github.com/cenkalti/backoff/v4"
 	"github.com/miekg/dns"
 )
 
