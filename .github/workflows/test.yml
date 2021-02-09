@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  phicomm-r1-controler:
+  mdns:
     runs-on: ubuntu-latest
     steps:
       -
