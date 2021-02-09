@@ -1,5 +1,4 @@
-//go:generate chmod +x ./scripts/generate/generate-bindata.sh
-//go:generate ./scripts/generate/generate-bindata.sh
+//go:generate echo "generate"
 package main
 
 import (
