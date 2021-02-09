@@ -33,7 +33,7 @@ func main() {
 			Flags: []cli.Flag{
 				&cli.StringFlag{
 					Name:        "service",
-					Aliases:     []string{"c"},
+					Aliases:     []string{"s"},
 					Value:       service,
 					Usage:       "service name",
 					EnvVars:     []string{"SERVICE"},
@@ -97,7 +97,7 @@ func main() {
 	myApp.Flags = []cli.Flag{
 		&cli.StringFlag{
 			Name:        "service",
-			Aliases:     []string{"c"},
+			Aliases:     []string{"s"},
 			Value:       service,
 			Usage:       "service name",
 			EnvVars:     []string{"SERVICE"},
