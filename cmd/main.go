@@ -34,7 +34,7 @@ func main() {
 				&cli.StringFlag{
 					Name:        "service",
 					Aliases:     []string{"s"},
-					Value:       service,
+					Value:       "_services._dns-sd._udp",
 					Usage:       "service name",
 					EnvVars:     []string{"SERVICE"},
 					Destination: &service,
@@ -42,7 +42,7 @@ func main() {
 				&cli.StringFlag{
 					Name:        "domain",
 					Aliases:     []string{"d"},
-					Value:       "_services._dns-sd._udp",
+					Value:       "local",
 					Usage:       "domain",
 					EnvVars:     []string{"DOMAIN"},
 					Destination: &domain,
