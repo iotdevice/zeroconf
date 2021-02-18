@@ -4,7 +4,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/iotdevice/zeroconf"
+	"github.com/grandcat/zeroconf"
 	"github.com/urfave/cli/v2"
 	"log"
 	"os"
