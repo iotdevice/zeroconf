@@ -19,7 +19,7 @@ var (
 )
 
 func main() {
-	var service = "_http._tcp"
+	var service = "_iotdevice._tcp"
 	var domain = "local"
 	var waitTime = 5
 	myApp := cli.NewApp()
